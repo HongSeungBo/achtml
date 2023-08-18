@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+</head>
+<body>
+    <button type="button" onclick="randombtn()">랜덤번호 6개 출력하기</button><br>
+    <div class="div1"></div>
+    <button type="button" onclick="dangbtn()">당첨번호 7개(마지막은 보너스~) 출력하기</button><br>
+    <div class="div2"></div>
+    <button type="button" onclick="search()">결과확인</button><br>
+    <div class="result"></div>
+    <button type="button" onclick="">다시하기</button><br>
+    
+    <script>
+        let div1 = document.getElementById('div1');
+        let div2 = document.getElementById('div2');
+        
+        const myNum=new Set();
+        const dangNum=new Set();
+        const dangArr=[7];
+        const bonusNum=0;
+        function randombtn(){
+            for(let i=0;i<6;i++){
+                myNum.add(Math.floor((Math.random()*45)+1));
+                if(i==5 && myNum.size<6){
+                    i--;
+                }
+            }
+            console.log(myNum);
+            // myNum.forEach(function(v){
+            //     div1.innerText+=`${v} `;
+            // })
+        }
+        function dangbtn(){
+            let result = document.getElementById('result');
+            for(let i=0;i<7;i++){
+                dangNum.add(Math.floor((Math.random()*45)+1));
+                if(i==6 && dangNum.size<7){
+                    i--;
+                }
+            }
+            console.log(dangNum);
+            dangNum.forEach(function(v){
+                dangArr.push(v);
+            })
+            dangArr.shift();
+            console.log(dangArr);
+        }
+        function search(){
+            for(let i=0;i<6;i++){
+                if(myNum.has(dangArr[i])){
+                    console.log(dangArr[i]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

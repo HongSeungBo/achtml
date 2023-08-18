@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+<body>
+    <h1>구구단 문제</h1>
+    <button type="button" onclick="btn1()">문제출제</button>
+    <button type="button" onclick="btn2()">정답확인</button>
+    <ol id="ans" class="ans">
+
+    </ol>
+    <h3 id="result"></h3>
+    <script>
+        let ans = document.getElementById('ans');
+        let cran1=0;
+        let cran2=0;
+        let ranans=[];
+        let cnt=0;
+        function btn1(){
+            for(let i=1;i<=10;i++){
+                cran1 = Math.floor((Math.random()*8)+2);
+                cran2 = Math.floor((Math.random()*8)+2);
+                ranans.push(cran1*cran2);
+                ans.innerHTML += `<li> ${cran1} x ${cran2} <input type="number" id="userans${i}"></li>`;
+            }
+            console.log(ranans);
+        }
+        
+        function btn2(){
+            for(let i=0;i<10;i++){
+                let userans = Number(document.getElementById(`userans${i+1}`).value);
+                console.log(userans);
+                if(userans==ranans[i]){
+                    document.getElementById(`userans${i+1}`).style.backgroundColor="green";
+                    cnt++;
+                }else{
+                    document.getElementById(`userans${i+1}`).style.backgroundColor="red";
+                }
+            }
+            let result = document.getElementById('result');
+            result.innerText=`정답률은 ${(cnt/10)*100} % 입니다.`;
+        }
+        </script>
+</body>
+</html>

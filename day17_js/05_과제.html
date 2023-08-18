@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>과제</title>
+
+    <style>
+        #header1 {
+
+            position: absolute;
+
+            font-size: 50px;
+
+            font-weight: 1000;
+
+            left: 50%;
+
+            transform: translate(-50%);
+
+        }
+
+        .div2 {
+
+            font-size: 20px;
+
+            font-weight: 500;
+
+        }
+
+        #header2 {
+
+            position: absolute;
+
+            left: 40%;
+
+            top: 13%;
+
+            transform: translate(-50%);
+
+        }
+
+        #header3 {
+
+            position: absolute;
+
+            left: 60%;
+
+            top: 13%;
+
+            transform: translate(-50%);
+
+        }
+
+        .header4 {
+
+            font-weight: 1000;
+
+            font-size: 30px;
+
+        }
+
+        #mheader1 {
+
+            position: absolute;
+
+            left: 17%;
+
+            top: 20%;
+
+        }
+
+        #mheader2 {
+
+            position: absolute;
+
+            left: 40%;
+
+            top: 20%;
+
+        }
+
+        #mheader3 {
+
+            position: absolute;
+
+            left: 68%;
+
+            top: 20%;
+
+        }
+        #div4>div:nth-child(1){
+            position: absolute;
+            left: 17%;
+            top: 30%;
+            font-size: 20px;
+        }
+        #div4>div:nth-child(2){
+            position: absolute;
+            left: 17%;
+            top: 33%;
+            font-size: 20px;
+        }
+        #div4>div:nth-child(6){
+            position: absolute;
+            left: 40%;
+            top: 30%;
+            font-size: 20px;
+        }
+        #div4>div:nth-child(7){
+            position: absolute;
+            left: 40%;
+            top: 33%;
+            font-size: 20px;
+        }
+        #div4>div:nth-child(11){
+            position: absolute;
+            left: 68%;
+            top: 30%;
+            font-size: 20px;
+        }
+        #div4>div:nth-child(12){
+            position: absolute;
+            left: 68%;
+            top: 33%;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="div1"></div>
+
+    <div id="div2"></div>
+
+    <div id="div3"></div>
+
+    <div id="div4"></div>
+
+    <script>
+
+        let div1 = document.getElementById('div1');
+
+        let div2 = document.getElementById('div2');
+
+        let div3 = document.getElementById('div3');
+
+        let div4 = document.getElementById('div4');
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+
+            .then(resp => resp.json())
+
+            .then(json => myFunc(json));
+
+        function myFunc(json) {
+
+            for (const c in json) {
+
+                if (c == "squadName") {
+
+                    div1.innerHTML += `<h1 id=header1>${json[c]}</h1>`;
+
+                }
+
+                else if (c == "homeTown") {
+
+                    div2.innerHTML += `<h2 id="header2" class="div2"> ${c} : ${json[c]}</h2>`;
+
+                }
+
+                else if (c == "formed") {
+
+                    div2.innerHTML += `<h2 id="header3" class="div2"> ${c} : ${json[c]}</h2>`;
+
+                }
+
+            }
+
+            div3.innerHTML += `<h3 id="mheader1" class="header4">${json["members"][0]["name"]}</h3>`;
+
+            div3.innerHTML += `<h3 id="mheader2" class="header4">${json["members"][1]["name"]}</h3>`;
+
+            div3.innerHTML += `<h3 id="mheader3" class="header4">${json["members"][2]["name"]}</h3>`;
+
+            
+            for (const jm of json["members"]) {
+                console.log(jm);
+
+                for (const v in jm) {
+
+                    if (v == "secretIdentity") {
+                        div4.innerHTML += `<div> secretIdentity : ${jm[v]} </div>`;
+                    }
+                    if(v=="age"){
+                        div4.innerHTML+=`<div>age : ${jm[v]}</div>`;
+                    }
+
+                    if (v == "powers") {
+
+                        for (const vjmv in jm[v]) {
+
+                            div4.innerHTML += `<li class="span"> ${jm[v][vjmv]} </li>`;
+
+                        }
+
+                    }
+
+                    div4.innerHTML += '';
+
+                }
+
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

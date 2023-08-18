@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        @keyframes finish{
+            0%{
+                width: 50px;
+            }
+            100%{
+                width: 100%;
+            }
+        }
+        @keyframes finish{
+            0%{
+                margin-left: 0%;
+            }
+            50%{
+                margin-left: 100%;
+            }
+            100%{
+                margin-left: 0%;
+            }
+        }
+        @keyframes position{
+            0%{
+                left: 0%;
+            }
+            50%{
+                left: 100%;
+            }
+            100%{
+                left: 0%;
+            }
+        }
+        .box{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            animation-name: position;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

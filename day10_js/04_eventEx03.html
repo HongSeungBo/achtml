@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할인율 구하기</title>
+</head>
+<body>
+    <form action="">
+        가격 : <input type="number" id="price"><br>
+        할인율 : <input type="number" id="per"><br>
+        <button type="button" onclick="percentFunc()">할인율 구하기</button><br>
+        <h3 id="info"></h3>
+    </form>
+    <script>
+        // 가격과 할인율을 입력받아 할인금액과 지불금액을 구하시오.
+        // ex)50000원 5%할인 할인금액 : 2500원 지불금액 47500원
+        function percentFunc(){
+            let price = document.getElementById('price').value;
+            let per = document.getElementById('per').value;
+            
+            let info = document.getElementById('info');
+            let total = parseInt(price) / parseInt(per);
+            let saleprice = parseInt(price) - total;
+            info.innerText =
+            `
+            총 금액 : ${price}
+            할인율 : ${per}
+            할인금액 : ${saleprice}
+            지불금액 : ${total}
+            `;
+        }
+    </script>
+</body>
+</html>

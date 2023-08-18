@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadow 속성</title>
+    <!-- 
+        그림자 넣기
+        box-shadow : 수평 수직 번짐정도(선택) 그림자크기(선택) 생상 그림자방향(선택)
+        inset : 안쪽 방향으로
+        text-shadow : 수평 수직 번짐정도 색상
+     -->
+     <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 3px solid black;
+        }
+        .box1{
+            box-shadow: 5px 5px 5px black;
+        }
+        .box2{
+            box-shadow: 5px 0px 0px black;
+        }
+        .box3{
+            box-shadow: 5px 5px 10px gray;
+        }
+        p{
+            font-size: 30px;
+            font-weight: 900;
+        }
+        .shadow1{
+            color: blue;
+            text-shadow: 5px 10px 15px whitesmoke;
+        }
+        .shadow2{
+            color: aquamarine;
+            text-shadow: 15px 10px 5px whitesmoke;
+        }
+        .shadow3{
+            color: skyblue;
+            text-shadow: none;
+        }
+     </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <p class="shadow1">그림자 효과1</p>
+    <p class="shadow2">그림자 효과2</p>
+    <p class="shadow3">그림자 효과3</p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+</head>
+<body>
+    <h1>Up Down Game</h1>
+    <button type="button" onclick="btn1Func()">랜덤 숫자 생성 버튼</button>
+    <button type="button" onclick="window.location.reload();">다시시도</button><br>
+    <input type="number" id="num"> <button type="button" onclick="btn2Func()">정답!!</button>
+    <h3 id="result"></h3>
+    <script>
+        let result = document.getElementById('result');
+        let cran=0;
+        let cnt=5;
+        let num =0;
+        function btn1Func(){
+            cran = Math.floor((Math.random()*99)+1);
+            console.log(cran);
+        }
+        function btn2Func(){
+            num = Number(document.getElementById('num').value);
+            if(cnt==0){
+                result.innerText=
+                `
+                총 횟수를 초과하셨습니다. 게임아웃
+                `;
+            }else{
+                if(parseInt(num)==cran){
+                    result.innerText=
+                    `
+                    정답입니다.
+                    컴퓨터 숫자는 ${cran} 입니다!
+                    `;
+                }else{
+                    if(num>cran){
+                        result.innerText=
+                        `
+                        오답입니다. 몇 ${cnt} 회 남으셨습니다.
+                        down
+                        `;
+                    }else if(num<cran){
+
+                        result.innerText=
+                        `
+                        오답입니다. 몇 ${cnt} 회 남으셨습니다.
+                        up
+                        `;
+                    }
+                    cnt--;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

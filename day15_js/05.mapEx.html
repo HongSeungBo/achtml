@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 예제</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성
+        과목, 점수
+        추가버튼 => map 추가
+        출력버튼 map을 출력
+        결과버튼 => 합계, 평균, 평가(80이상이면 통과, 아니면 탈락) => h3
+     -->
+     과목이름 : <input type="text" id="subject"><br>
+     점수 : <input type="number" id="score"><br>
+     <button type="button" onclick="plus()">추가</button>
+     <button type="button" onclick="infoMap()">출력</button>
+     <button type="button" onclick="sc()">결과</button>
+     <ul id="ul"></ul>
+     <h3 id="h3"></h3>
+     <script>
+        const ssMap = new Map();
+        let ul = document.getElementById('ul');
+        let h3 = document.getElementById('h3');
+        let score1=0;
+        let sum=0;
+        let avg=0;
+        let p=0;
+        function plus(){
+            let subject = document.getElementById('subject').value;
+            let score = document.getElementById('score').value;
+            ssMap.set(subject,score);
+        }
+        function infoMap(){
+            ssMap.forEach(function(v,i){
+                ul.innerHTML+=`<li>${i} : ${v}</li>`;
+            })
+        }
+        function sc(){
+            ssMap.forEach(function(v){
+                score1 = parseInt(v);
+                sum += score1;
+                avg = Math.round(sum/ssMap.size);
+            })
+                if(avg>=80){
+                    p = true;
+                }else{
+                    p = false;
+                }
+                h3.innerText =
+                `
+                합계 : ${sum}
+                평균 : ${avg}
+                평가 : ${p}
+                `;
+            
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제</title>
+    <style>
+        .main{
+            margin-right: auto;
+            margin-left: auto;
+            width: 80%;
+            height: 1500px;
+            /* border: 1px solid white; */
+            background-image: url(/image/비행기구름노을.jpeg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .image{
+            /* margin-top: 50px; */
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .bigdiv{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 50%;
+            background-color: white;
+        }
+        .text{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+            background-color: white;
+            font-size: 35px;
+            font-weight: 900;
+        }
+        .img1{
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+            margin: 15px;
+            width: 90px;
+            height: 50px;
+        }
+        .img2{
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+            margin: 15px;
+            width: 45px;
+            height: 45px;
+        }
+        .smalltext{
+            padding-top: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+            background-color: whitesmoke;
+            box-sizing: border-box;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="image">
+            <div class="bigdiv">
+                <div class="text">
+                    <img src="/image/비행기구름노을.jpeg" alt="" class="img1">
+                    사용자 수가 많아 접속이 지연되고 있습니다.<br>잠시 기다려주세요.
+                    <img src="/image/버퍼링.png" alt="" class="img2">
+                </div>
+                <div class="smalltext">
+                    관련 문의 사항은 고객센터에 문의해주시면 친절히 안내해드리겠습니다.<br>고객상담전화 080-022-0102
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

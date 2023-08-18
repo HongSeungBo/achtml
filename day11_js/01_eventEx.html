@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이구하기</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"><br>
+    주민번호 : <input type="text" id="rNum"><br>
+    <button type="button" onclick="dataFunc()">확인</button>
+    <h3 id="info">
+        <!-- 이름, 생년월일, 성별, 나이 -->
+    </h3>
+    <script>
+        // 오늘날짜 리턴
+        let now = new Date();
+        console.log(now.getFullYear());
+
+        function dataFunc(){
+            let name = document.getElementById('name').value;
+            let rNum = document.getElementById('rNum').value;
+            gender = rNum.charAt(7);
+            if(gender=="1"){
+                gender="남";
+            }else{
+                gender="여";
+            }
+            let birth = rNum.slice(0,6);
+            let rNum3 = rNum.slice(0,2);
+            if(parseInt(rNum3)<24 && parseInt(rNum3)>=0){
+                rNUm3 = "20" + rNum3
+            }else if(parseInt(rNum3)>24){
+                rNum3 = "19" + rNum3
+            }
+            let age = (parseInt(now.getFullYear()) - parseInt(rNum3));
+            let info = document.getElementById('info');
+            info.innerText = 
+            `
+            name : ${name}
+            성별 : ${gender}
+            생년월일 : ${birth}
+            나이 : ${age}
+            `;
+        }
+
+        // 오늘날짜 반환
+        let today = new Date();
+        console.log(typeof today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth()+1) // 0~11월 +1
+        console.log(today.getDate()); //일 반환 1~31
+        console.log(today.getDay()); //요일 0(일)~6(토)
+
+        // getHours, minutes, seconds : 시분초 추출
+        let today2 = today.toLocaleDateString(); // 날짜만
+        console.log(today2);
+        let time = today.toLocaleTimeString(); // 시간만
+        console.log(time);
+        console.log(today.toLocaleString()); // 날짜 + 시간
+    </script>
+</body>
+</html>

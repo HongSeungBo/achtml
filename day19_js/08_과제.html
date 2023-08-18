@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="" id="img">
+    
+    <script>
+        let img = document.getElementById('img');
+        let ran = Math.floor(Math.random()*4);
+        let imgArr=["고양이1.jpg","고양이2.jpg","고양이3.jfif","cat1.jpg"];
+        function ranimg(){
+            ran = Math.floor(Math.random()*4);
+            console.log(ran);
+            img.src="/image/"+imgArr[ran];
+        }
+        setInterval(ranimg,1000);
+    </script>
+</body>
+</html>

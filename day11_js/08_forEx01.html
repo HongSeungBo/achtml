@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 For문</title>
+    <style>
+        table>tr>td{
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 2~9단까지 출력하기</h1>
+    단 : <input type="number" id="dan">
+    <button type="button" onclick="gugudanFunc()">구구단 출력 버튼</button><br>
+    <button type="button" onclick="danFunc()">구구단 전부 출력</button>
+    <button type="button" onclick="tableFunc()">테이블로 만들기</button>
+    <button type="button" id="btn">테이블로 만들기2</button>
+    <div id="gugu"></div>
+    <h3 id="here">
+
+    </h3>
+    <table id="table">
+    </table>
+    <script>
+        function tableFunc(){
+            let table = document.getElementById('table');
+            for(let i=1;i<=9;i++){
+                let row = document.createElement('tr');
+                table.appendChild(row);
+                for(let j=1;j<=9;j++){
+                    let cell = document.createElement('td');
+                    cell.innerHTML =`${j}*${i}=${i*j}`;
+                    row.appendChild(cell);
+                }
+            }
+        }
+        function danFunc(){
+            let here = document.getElementById('here');
+            for(let i=1;i<=9;i++){
+                here.innerText +=
+                `
+                
+                `;
+                for(let j=1;j<=9;j++){
+                    here.innerHTML +=
+                    `
+                    <span>
+                    ${j} * ${i} = ${i*j}
+                    </span>
+                    `;
+                }
+            }
+        }
+
+
+        function gugudanFunc(){
+            let dan = document.getElementById('dan').value;
+            let here = document.getElementById('here');
+            for(let i=1;i<=9;i++){
+                here.innerText +=
+                `
+                ${dan} * ${i} = ${parseInt(dan)*i}
+                `;
+            }
+        }
+
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let str = `<table>`;
+                let incre = 1;
+                while(incre<10){
+                    let dan = 2;
+                    str += `<tr>`;
+                        while(dan<10){
+                            str+=`<td>${dan}*${incre}=${dan*incre}</td>`;
+                            dan++;
+                        }
+                    incre++;
+                    str+=`</tr>`;
+                }
+                str+=`</table>`;
+            document.getElementById(`gugu`).innerHTML = str;
+        })
+    </script>
+</body>
+</html>
